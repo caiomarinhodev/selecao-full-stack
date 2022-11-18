@@ -8,9 +8,11 @@ class GetAllTickersView(APIView):
     authentication_classes = []
 
     def get(self, request, format=None):
-        tickers = get_all_tickers()
-        # TODO: IMPLEMENT raise error if tickers is None
-        return Response(tickers)
+        try:
+            tickers = get_all_tickers()
+            return Response(tickers)
+        except Exception as e:
+            return Response({'error': str(e)})
 
 
 class TickerView(APIView):
@@ -18,9 +20,11 @@ class TickerView(APIView):
 
     def get(self, request, format=None):
         ticker = request.GET.get('ticker')
-        ticker = get_ticker(ticker)
-        # TODO: IMPLEMENT raise error if ticker is not found
-        return Response(ticker)
+        try:
+            ticker = get_ticker(ticker)
+            return Response(ticker)
+        except Exception as e:
+            return Response({'error': str(e)})
 
 
 class TickerHistoryView(APIView):
@@ -29,13 +33,19 @@ class TickerHistoryView(APIView):
     def get(self, request, format=None):
         ticker = request.GET.get('ticker')
         days = request.GET.get('days')
-        history_ticker = get_history_ticker(ticker, days)
-        return Response(history_ticker)
+        try:
+            history_ticker = get_history_ticker(ticker, days)
+            return Response(history_ticker)
+        except Exception as e:
+            return Response({'error': str(e)})
 
 
 class GetAllAvailableCombinationsView(APIView):
     authentication_classes = []
 
     def get(self, request, format=None):
-        combinations = get_all_available_combinations()
-        return Response(combinations)
+        try:
+            combinations = get_all_available_combinations()
+            return Response(combinations)
+        except Exception as e:
+            return Response({'error': str(e)})
