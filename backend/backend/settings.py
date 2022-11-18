@@ -95,9 +95,9 @@ DATABASES = {
 }
 
 # To deploy on Render.com (change database name)
-#db_from_env = dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/personalsite',
+# db_from_env = dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/personalsite',
 #                                     conn_max_age=600)
-#DATABASES['default'].update(db_from_env)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
