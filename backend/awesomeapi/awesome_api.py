@@ -1,13 +1,12 @@
 import requests
 
-from app.exceptions import NotFoundError
+from awesomeapi.exceptions import NotFoundError
 
 AWESOME_API_URL_BASE = 'https://economia.awesomeapi.com.br'
 AWESOME_API_JSON = 'json'
 AWWSOME_API_XML = 'xml'
 
 
-# TODO: Create diff apps for each API and change URL'S
 # TODO: Documentation of all methods and classes
 # TODO: README
 # TODO: Tests DRF testing

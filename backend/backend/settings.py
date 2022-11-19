@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'corsheaders',
     'app',
+    'awesomeapi',
+    'krakenapi',
     'django_filters',
 ]
 

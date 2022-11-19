@@ -1,6 +1,6 @@
 import requests
 
-from app.exceptions import NotFoundError
+from krakenapi.exceptions import NotFoundError
 
 KRAKEN_URL_BASE = 'https://api.kraken.com/0/public/Ticker?pair='
 

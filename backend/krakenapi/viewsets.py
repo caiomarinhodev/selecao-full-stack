@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from app.krakenapi.kraken_api import get_ticker
+from krakenapi.kraken_api import get_ticker
 
 
 class TickerView(APIView):
