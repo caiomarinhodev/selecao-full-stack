@@ -10,6 +10,7 @@ django-js-asset
 django-filter
 django-rest-auth[with_social]
 djangorestframework
+django-rest-knox
 gunicorn
 psycopg2-binary
 pytz

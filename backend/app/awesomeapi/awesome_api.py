@@ -7,6 +7,12 @@ AWESOME_API_JSON = 'json'
 AWWSOME_API_XML = 'xml'
 
 
+# TODO: Documentation of all methods and classes
+# TODO: README
+# TODO: Tests DRF testing
+# TODO: Postman tests file
+# TODO: Docker
+# TODO: Remove unused files
 def get_ticker(ticker):
     req = requests.get('{base}/{type}/{time}/{ticker}'.format(base=AWESOME_API_URL_BASE, type=AWESOME_API_JSON,
                                                               time='last', ticker=ticker))
