@@ -19,7 +19,8 @@ class GetAllTickersView(APIView):
 
 
 class TickerView(APIView):
-    authentication_classes = []
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
         ticker = request.GET.get('ticker')
@@ -31,7 +32,8 @@ class TickerView(APIView):
 
 
 class TickerHistoryView(APIView):
-    authentication_classes = []
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
         ticker = request.GET.get('ticker')
@@ -44,7 +46,8 @@ class TickerHistoryView(APIView):
 
 
 class GetAllAvailableCombinationsView(APIView):
-    authentication_classes = []
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
         try:

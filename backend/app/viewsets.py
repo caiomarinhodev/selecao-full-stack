@@ -1,3 +1,4 @@
+from knox.auth import TokenAuthentication
 from knox.models import AuthToken
 from rest_framework import generics, permissions
 from rest_framework.response import Response
@@ -33,6 +34,7 @@ class SignInAPI(generics.GenericAPIView):
 
 
 class MainUser(generics.RetrieveAPIView):
+    authentication_classes = (TokenAuthentication,)
     permission_classes = [
         permissions.IsAuthenticated
     ]
