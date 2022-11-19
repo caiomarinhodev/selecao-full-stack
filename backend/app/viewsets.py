@@ -7,6 +7,9 @@ from app.serializers import RegisterSerializer, UserSerializer, LoginSerializer
 
 
 class SignUpAPI(generics.GenericAPIView):
+    """
+    Register API endpoint.
+    """
     serializer_class = RegisterSerializer
 
     def post(self, request, *args, **kwargs):
@@ -21,6 +24,9 @@ class SignUpAPI(generics.GenericAPIView):
 
 
 class SignInAPI(generics.GenericAPIView):
+    """
+    Login API endpoint.
+    """
     serializer_class = LoginSerializer
 
     def post(self, request):
@@ -34,6 +40,9 @@ class SignInAPI(generics.GenericAPIView):
 
 
 class MainUser(generics.RetrieveAPIView):
+    """
+    Get user API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = [
         permissions.IsAuthenticated

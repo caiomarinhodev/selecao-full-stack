@@ -7,6 +7,9 @@ from krakenapi.kraken_api import get_ticker
 
 
 class TickerView(APIView):
+    """
+    Get ticker API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 

@@ -7,6 +7,9 @@ from .awesome_api import get_all_tickers, get_ticker, get_history_ticker, get_al
 
 
 class GetAllTickersView(APIView):
+    """
+    Get all tickers API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
@@ -19,6 +22,9 @@ class GetAllTickersView(APIView):
 
 
 class TickerView(APIView):
+    """
+    Get ticker API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
@@ -32,6 +38,9 @@ class TickerView(APIView):
 
 
 class TickerHistoryView(APIView):
+    """
+    Get ticker history API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
@@ -46,6 +55,9 @@ class TickerHistoryView(APIView):
 
 
 class GetAllAvailableCombinationsView(APIView):
+    """
+    Get all available combinations API endpoint.
+    """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
