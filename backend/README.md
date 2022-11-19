@@ -40,6 +40,13 @@ Para rodar a aplicação você deverá seguir os passos abaixo.
   python manage.py runserver
 ```
 
+## Testes
+Para rodar os testes, basta executar o comando abaixo:
+
+```bash
+  python manage.py test
+```
+
 ## Endpoints
 
 Para acessar todos os endpoints criados, é necessário estar logado no sistema, pois todos os endpoints utilizáveis
