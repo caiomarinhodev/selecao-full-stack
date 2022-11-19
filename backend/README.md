@@ -99,8 +99,9 @@ Os dados a serem enviados são:
 - [x] Listar cotações disponiveis
 
     ```http
-      GET /api/awesome/tickers/
+    GET /api/awesome/tickers/
     ```
+  
 - [x] Listar cotações por moeda
 
     ```http
