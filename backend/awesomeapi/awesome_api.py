@@ -7,11 +7,8 @@ AWESOME_API_JSON = 'json'
 AWWSOME_API_XML = 'xml'
 
 
-# TODO: README
 # TODO: Tests DRF testing
-# TODO: Postman tests file
 # TODO: Docker
-# TODO: Remove unused files
 def get_ticker(ticker):
     """
     Get ticker information
