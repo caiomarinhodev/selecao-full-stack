@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardPageComponent } from './dashboard.component';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
 
 
 
@@ -21,7 +22,8 @@ import { NgxLoadingModule } from 'ngx-loading';
       primaryColour: '#0082f0',
       secondaryColour: '#0082f0',
       tertiaryColour: '#0082f0'
-    })
+    }),
+    AngularMaterialModule
   ],
   providers: []
 })
