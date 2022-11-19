@@ -1,3 +1,5 @@
+from knox.auth import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -5,7 +7,8 @@ from .awesome_api import get_all_tickers, get_ticker, get_history_ticker, get_al
 
 
 class GetAllTickersView(APIView):
-    authentication_classes = []
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
         try:
