@@ -27,6 +27,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         """
         This method is used to create a new user
         """
+        if 'email' not in validated_data:
+            raise serializers.ValidationError({'email': 'This field is required'})
+        if 'username' not in validated_data:
+            raise serializers.ValidationError({'username': 'This field is required'})
+        if 'password' not in validated_data:
+            raise serializers.ValidationError({'password': 'This field is required'})
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
         return user
 
