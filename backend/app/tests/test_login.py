@@ -21,8 +21,8 @@ class AuthLoginApiTests(TestCase):
         token = res.data['token']
         return token
 
-    def test_login_user_exists(self):
-        """Test login a user that already exists"""
+    def test_login_user(self):
+        """Test login a user"""
         token = self.register_user()
         payload = {
             'username': 'testuser',
