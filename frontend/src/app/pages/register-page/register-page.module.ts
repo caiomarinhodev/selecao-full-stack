@@ -9,13 +9,13 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
 import { UserService } from '../../service/user/user.service';
-import { LoginComponent } from './login.component';
+import { RegisterPageComponent } from './register-page.component';
 
 
 
 @NgModule({
     declarations: [
-        LoginComponent,
+        RegisterPageComponent,
     ],
     imports: [
         CommonModule,
@@ -33,5 +33,5 @@ import { LoginComponent } from './login.component';
     ],
     providers: [UserService]
 })
-export class LoginModule {
+export class RegisterPagenModule {
 }

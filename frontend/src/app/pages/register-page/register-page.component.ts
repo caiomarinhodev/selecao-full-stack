@@ -8,25 +8,28 @@ import { UserService } from 'src/app/service/user/user.service';
 import { CustomValidators } from 'src/app/shared/validator/custom-validators';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  selector: 'app-register-page',
+  templateUrl: './register-page.component.html',
+  styleUrls: ['./register-page.component.less']
 })
-export class LoginComponent extends BaseComponent implements OnInit {
+export class RegisterPageComponent extends BaseComponent implements OnInit {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute,
     vcr: ViewContainerRef,
     private translate: TranslateService) {
     super();
-    this.loginForm = this.formBuilder.group(
+    this.registerForm = this.formBuilder.group(
       {
         username: new FormControl(undefined, [Validators.required,
         CustomValidators.noWhitespaceValidator]),
+        email: new FormControl(undefined, [Validators.required,
+        CustomValidators.noWhitespaceValidator]),
         password: new FormControl(undefined, [Validators.required,
         Validators.minLength(5), Validators.required, Validators.maxLength(255)]),
-        rememberMe: new FormControl(undefined, [])
+        retype_password: new FormControl(undefined, [Validators.required,
+        Validators.minLength(5), Validators.required, Validators.maxLength(255)])
       }
     );
   }
@@ -34,69 +37,41 @@ export class LoginComponent extends BaseComponent implements OnInit {
   protected notificationModule: NotificationModule;
 
   ngOnInit(): void {
-    if (this.userService.isLogged()) {
-      this.navigate(['/']);
-    }
-    this.loginForm.controls['rememberMe'].setValue((localStorage.getItem('rememberMe') === 'true'));
-
-    if (localStorage.getItem('rememberedUser') !== null) {
-      this.loginForm.controls['username'].setValue(localStorage.getItem('rememberedUser'));
-    }
   }
 
   onSubmit(): void {
-    this.login(this.loginForm.value['username'], this.loginForm.value['password']);
-  }
-
-  login(username, password): void {
-    if (this.userService.isLogged()) {
-      this.notification.error('Usuário já está logado!');
-      location.reload();
+    if (this.registerForm.value['password'] !== this.registerForm.value['retype_password']) {
+      this.notification.error('Senhas não conferem!');
       return;
     }
-    this.checkRemember();
+    this.register(this.registerForm.value['username'], this.registerForm.value['email'], this.registerForm.value['password']);
+  }
 
-    this.userService.login(username, password).subscribe(
+  register(username, email, password): void {
+    this.userService.register(username, email, password).subscribe(
       result => {
-        console.log('User is logged!');
+        console.log('User is created!', result);
         console.log(this.userService.getUser());
-        this.navigate(['/']);
+        this.notification.successText('Usuário criado com sucesso!');
+        this.navigate(['/login']);
       },
       err => {
+        console.log(err);
         this.notification.error('Usuário ou senha inválida!');
       }
     );
   }
 
-
-  checkRemember(): void {
-    const shouldRemember: boolean = this.loginForm.value['rememberMe'];
-
-    localStorage.setItem('rememberMe', String(shouldRemember));
-
-    if (shouldRemember) {
-      localStorage.setItem('rememberedUser', this.loginForm.value['username']);
-    } else {
-      localStorage.removeItem('rememberedUser');
-    }
+  back() {
+    this.navigate(['/login']);
   }
-
 
   getServiceURL(): string {
     return '';
   }
 
-  /**
-   * Gets the router URL.
-   *
-   * @returns {string}
-   */
   getRouterURL(): string {
     return '';
-  }
-
-  goToRegister(): void {
-    this.navigate(['/register']);
   }
 
 

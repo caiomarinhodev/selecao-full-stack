@@ -1,11 +1,4 @@
-<mat-toolbar class="toolbar">
-    <img src="https://i.imgur.com/CNXThha.png" alt="logo" />
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <label>EN</label>
-    </button>
-</mat-toolbar>
-
+<app-toolbar></app-toolbar>
 <div class="container-fluid">
     <div class="row no-gutter">
         <!-- The image half -->
@@ -46,7 +39,8 @@
                                     <span class="title-button">Login</span>
                                 </button>
                                 <hr />
-                                <button type="button" class="btn btn-block text-uppercase mb-2 shadow-sm btn-registro">
+                                <button type="button" class="btn btn-block text-uppercase mb-2 shadow-sm btn-registro"
+                                    (click)="goToRegister()">
                                     <span class="title-button">Registro</span>
                                 </button>
                             </form>

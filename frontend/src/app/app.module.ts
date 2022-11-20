@@ -23,6 +23,8 @@ import { SearchService } from './core/service/search.service';
 import { CrudService } from './core/service/crud.service';
 import { HomeModule } from './pages/home/home.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
+import { RegisterPagenModule } from './pages/register-page/register-page.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +56,9 @@ export function createTranslateLoader(http: HttpClient) {
     LayoutModule,
     AngularMaterialModule,
     LoginModule,
+    RegisterPagenModule,
     HomeModule,
-    DashboardModule
+    DashboardModule,
   ],
   providers: [
     AppTranslateService,

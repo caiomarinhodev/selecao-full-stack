@@ -20,6 +20,15 @@ export class UserService extends BaseService {
     return this.getUser() !== null;
   }
 
+  register(username, email, password) {
+    return this.post(AuthURL.REGISTER,
+      {
+        username: username,
+        email: email,
+        password: password
+      });
+  }
+
   /**
    * Login the user and gets the token authorization.
    *
@@ -35,7 +44,6 @@ export class UserService extends BaseService {
       }
     ).map((r: any) => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(r));
-      window.location.replace('/');
       return r;
     });
   }
@@ -48,13 +56,10 @@ export class UserService extends BaseService {
    * Logout the user.
    */
   logout(): void {
-    this.post(AuthURL.LOGOUT, {
-    }).map((r: any) => {
+    this.post(AuthURL.LOGOUT, {}).subscribe(() => {
       localStorage.removeItem(STORAGE_KEY);
       window.location.replace('/');
-      return r;
     });
   }
-
 }
 

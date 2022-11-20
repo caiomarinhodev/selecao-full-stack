@@ -3,24 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
-import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
-import { UserService } from '../../service/user/user.service';
-import { LoginComponent } from './login.component';
+import { ToolbarComponent } from './toolbar.component';
 
 
 
 @NgModule({
     declarations: [
-        LoginComponent,
+        ToolbarComponent,
     ],
     imports: [
         CommonModule,
         TranslateModule,
-        ReactiveFormsModule,
         NgxLoadingModule.forRoot({
             backdropBackgroundColour: 'rgba(0,0,0,0.1)',
             backdropBorderRadius: '4px',
@@ -29,9 +24,11 @@ import { LoginComponent } from './login.component';
             tertiaryColour: '#0082f0'
         }),
         AngularMaterialModule,
-        ToolbarModule
     ],
-    providers: [UserService]
+    exports: [
+        ToolbarComponent
+    ],
+    providers: []
 })
-export class LoginModule {
+export class ToolbarModule {
 }

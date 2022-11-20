@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import { DashboardPageComponent } from './dashboard.component';
 import { NgxLoadingModule } from 'ngx-loading';
+import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
+import { DashboardPageComponent } from './dashboard.component';
 
 
 
 @NgModule({
   declarations: [
-    DashboardPageComponent
+    DashboardPageComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,7 @@ import { AngularMaterialModule } from 'src/app/shared/interface/angular-material
       secondaryColour: '#0082f0',
       tertiaryColour: '#0082f0'
     }),
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   providers: []
 })

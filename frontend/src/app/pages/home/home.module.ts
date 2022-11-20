@@ -8,6 +8,7 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 
 import { RouterModule } from '@angular/router';
+import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
       tertiaryColour: '#0082f0'
     }),
     RouterModule,
+    ToolbarModule
   ],
   providers: []
 })
