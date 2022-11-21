@@ -14,17 +14,17 @@ import { AppComponent } from './app.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { LoginModule } from './pages/login/login.module';
-import { AngularMaterialModule } from './shared/interface/angular-material.module';
 import { setAppInjector } from './app.injector';
-import { AppTranslateService } from './core/service/translate.service';
 import { NotificationModule } from './core/module/notification/notification.module';
-import { SearchService } from './core/service/search.service';
 import { CrudService } from './core/service/crud.service';
-import { HomeModule } from './pages/home/home.module';
+import { SearchService } from './core/service/search.service';
+import { AppTranslateService } from './core/service/translate.service';
+import { CustomCardModule } from './pages/dashboard/custom-card/custom-card.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
+import { HomeModule } from './pages/home/home.module';
+import { LoginModule } from './pages/login/login.module';
 import { RegisterPagenModule } from './pages/register-page/register-page.module';
+import { AngularMaterialModule } from './shared/interface/angular-material.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoginModule,
     RegisterPagenModule,
     HomeModule,
-    DashboardModule,
+    DashboardModule
   ],
   providers: [
     AppTranslateService,

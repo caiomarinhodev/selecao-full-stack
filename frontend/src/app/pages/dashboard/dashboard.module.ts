@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxLoadingModule } from 'ngx-loading';
 import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
+import { CustomCardModule } from './custom-card/custom-card.module';
 import { DashboardPageComponent } from './dashboard.component';
 
 
@@ -25,6 +26,7 @@ import { DashboardPageComponent } from './dashboard.component';
       tertiaryColour: '#0082f0'
     }),
     AngularMaterialModule,
+    CustomCardModule
   ],
   providers: []
 })
