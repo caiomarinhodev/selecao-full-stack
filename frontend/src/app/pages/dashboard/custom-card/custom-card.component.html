@@ -2,11 +2,12 @@
   <mat-card-content class="content-card">
     <div class="row">
       <div class="col-9">
-        <mat-card-title class="title-card">BRL / USD</mat-card-title>
+        <mat-card-title class="title-card">{{code}} / {{codein}}</mat-card-title>
       </div>
       <div class="col-3">
         <span mat-card-sm-avatar class="icon-symbol">
-          <i class="fa fa-dollar"></i>
+          <i class="fa fa-dollar" *ngIf="!isBitcoin"></i>
+          <i class="fa fa-btc" *ngIf="isBitcoin"></i>
         </span>
       </div>
     </div>
@@ -15,10 +16,16 @@
         <span class="currency">
           R$
         </span>
-        <span class="value">3722,90</span>
+        <!-- <span class="currency">
+          $
+        </span>
+        <span class="currency">
+          €
+        </span> -->
+        <span class="value">{{value| number:'1.2-2'}}</span>
       </div>
     </div>
 
-    <p class="description">Dolar turismo</p>
+    <p class="description" *ngIf="hasDescription">Dolar turismo</p>
   </mat-card-content>
 </mat-card>

@@ -12,22 +12,9 @@ import { UserService } from '../../service/user/user.service';
 })
 export class DashboardPageComponent extends BaseModelComponent implements OnInit {
 
-  public loadingRiskRevenue = false;
-
   protected service: CrudService = AppInjector.get(CrudService);
 
-  totalInvoices: any;
-  percentRisk: any;
-  riskRevenue: any;
-
-  percentRiskGauge: any;
-  riskRevenueGauge: any;
-  totalInvoicesGauge: any;
-
-  storageCard: any;
-
   cards: any;
-
 
   constructor(private route: ActivatedRoute, private userService: UserService) {
     super();
