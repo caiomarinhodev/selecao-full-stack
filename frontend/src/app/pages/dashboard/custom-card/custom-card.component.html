@@ -13,15 +13,15 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <span class="currency">
+        <span class="currency" *ngIf="codein == 'BRL'">
           R$
         </span>
-        <!-- <span class="currency">
+        <span class="currency" *ngIf="codein == 'USD'">
           $
         </span>
-        <span class="currency">
+        <span class="currency" *ngIf="codein == 'EUR'">
           €
-        </span> -->
+        </span>
         <span class="value">{{value| number:'1.2-2'}}</span>
       </div>
     </div>

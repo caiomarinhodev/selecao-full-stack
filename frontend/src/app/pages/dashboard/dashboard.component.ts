@@ -23,7 +23,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   loading: boolean = false;
 
-  displayedColumns: string[] = ['name', 'low', 'high', 'pctChange'];
+  displayedColumns: string[] = ['name', 'timestamp', 'low', 'high', 'pctChange'];
 
   source: Ticker[] = [];
 
@@ -69,8 +69,24 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
     this.loading = true;
     this.awesomeService.getHistoryTicker(ticker, 10).subscribe((data: Ticker[]) => {
       console.log(data);
-      this.dataSource.data = data;
-      this.loading = false;
+      if (data.hasOwnProperty('error')) {
+        this.loading = false;
+        this.notification.error(data['error']);
+      } else {
+        let sourceData = data;
+        let firstElement = data[0];
+
+        sourceData.forEach(element => {
+          let date = new Date(parseInt(element.timestamp) * 1000);
+          element.timestamp = date.toLocaleString();
+          if (!element.hasOwnProperty('name')) {
+            element.name = firstElement.name;
+          }
+        });
+        console.log(sourceData);
+        this.dataSource.data = sourceData;
+        this.loading = false;
+      }
     },
       error => {
         this.loading = false;
@@ -81,6 +97,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
         this.router.navigate(['/login']);
       });
   }
+  
 
   getAllAvailableTickers() {
     this.loading = true;

@@ -34,6 +34,15 @@ export class CustomCardComponent implements OnInit {
 
   ngOnInit() {
     this.getTickerByAPI(this.ticker, this.api);
+    if (this.api === 'awesome') {
+      setInterval(() => {
+        this.getTickerByAPI(this.ticker, this.api);
+      }, 30000);
+    } else if (this.api === 'kraken') {
+      setInterval(() => {
+        this.getTickerByAPI(this.ticker, this.api);
+      }, 1000);
+    }
   }
 
   getCodes(key) {

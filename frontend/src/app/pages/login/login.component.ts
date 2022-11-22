@@ -61,7 +61,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     this.userService.login(username, password).subscribe(
       result => {
         this.loading = false;
-        console.log('User is logged!');
+        console.log('Usuário já está logado!');
         console.log(this.userService.getUser());
         this.navigate(['/']);
       },
@@ -89,11 +89,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
     return '';
   }
 
-  /**
-   * Gets the router URL.
-   *
-   * @returns {string}
-   */
   getRouterURL(): string {
     return '';
   }

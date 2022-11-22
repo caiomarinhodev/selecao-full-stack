@@ -46,9 +46,7 @@ export class HomePageComponent {
       browserLang = this.translate.getBrowserLang();
     }
 
-    this.translate.addLangs(['en'
-      // 'es', 'pt'
-    ]);
+    this.translate.addLangs(['en', 'es', 'pt']);
     this.translate.setDefaultLang('en');
     this.translate.use(browserLang.match(/en|es|pt/) ? browserLang : 'en');
   }

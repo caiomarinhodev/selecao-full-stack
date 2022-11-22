@@ -39,7 +39,6 @@
           <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
             class="mat-elevation-z8">
 
-            <!-- Position Column -->
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por moeda">
                 Moeda
@@ -47,7 +46,13 @@
               <td mat-cell *matCellDef="let element" class='m-card-title'> {{element.name}} </td>
             </ng-container>
 
-            <!-- Name Column -->
+            <ng-container matColumnDef="timestamp">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por data">
+                Data
+              </th>
+              <td mat-cell *matCellDef="let element" class='m-card-title'> {{element.timestamp}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="low">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por mínima">
                 Mínima
@@ -55,7 +60,6 @@
               <td mat-cell *matCellDef="let element" class='m-card-sub-title'> {{element.low}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
             <ng-container matColumnDef="high">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por máxima">
                 Máxima
@@ -63,8 +67,6 @@
               <td mat-cell *matCellDef="let element" class='has_label_on_mobile'> {{element.high}} </td>
             </ng-container>
 
-
-            <!-- Symbol Column -->
             <ng-container matColumnDef="pctChange">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por variação">
                 Variação
@@ -80,14 +82,8 @@
       </div>
     </div>
   </div>
+  <br />
 </div>
-<script>
-  eventTarget.addEventListener("keydown", event => {
-    if (event.isComposing || event.keyCode === 17) {
-    }
-    // do something
-  });
-</script>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px',
         backdropBackgroundColour: 'rgba(0,0,0,0.8)',
         backdropBorderRadius: '4px',
