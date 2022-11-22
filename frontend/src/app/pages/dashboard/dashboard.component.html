@@ -1,6 +1,12 @@
 <div class="container-fluid">
-  <br/>
-  <label class="title">Moedas</label>
+  <div class="row">
+    <div class="col-sm-11">
+      <label class="title">Moedas</label>
+    </div>
+    <div class="col-sm-1">
+      <i class="fa fa-2x fa-refresh reload-icon" (click)="refresh()"></i>
+    </div>
+  </div>
   <div class="row no-gutter">
     <div class="col-md-4">
       <app-custom-card api="awesome" ticker="USD-BRL"></app-custom-card>
@@ -12,6 +18,20 @@
       <app-custom-card api="kraken" ticker="XBTUSD"></app-custom-card>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-9">
+      <label class="title">Cotações</label>
+    </div>
+    <div class="col-sm-3">
+      <select class="form-control select-ticker" [(ngModel)]="selectedTicker" (ngModelChange)="selectTicker($event)">
+        <option *ngFor="let ticker of available_tickers" [value]="ticker.key">{{ticker.value}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row no-gutter">
+    <div class="col-12">
+    </div>
+  </div>
 </div>
 <script>
   eventTarget.addEventListener("keydown", event => {
@@ -20,3 +40,9 @@
     // do something
   });
 </script>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px',
+        backdropBackgroundColour: 'rgba(0,0,0,0.8)',
+        backdropBorderRadius: '4px',
+        primaryColour: '#ffffff',
+        secondaryColour: '#ffffff',
+        tertiaryColour: '#ffffff'}"></ngx-loading>

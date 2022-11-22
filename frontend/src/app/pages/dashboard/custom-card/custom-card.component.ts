@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationModule } from 'src/app/core/module/notification/notification.module';
 import { AwesomeAPIService } from 'src/app/service/api/awesomeapi.service';
 import { KrakenAPIService } from 'src/app/service/api/krakenapi.service';
-import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-custom-card',

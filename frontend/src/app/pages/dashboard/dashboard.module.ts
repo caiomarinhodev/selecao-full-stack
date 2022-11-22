@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { TranslateModule } from '@ngx-translate/core';
 
 import { NgxLoadingModule } from 'ngx-loading';
-import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
+import { AwesomeAPIService } from 'src/app/service/api/awesomeapi.service';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
 import { CustomCardModule } from './custom-card/custom-card.module';
 import { DashboardPageComponent } from './dashboard.component';
@@ -17,6 +18,7 @@ import { DashboardPageComponent } from './dashboard.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     TranslateModule,
     NgxLoadingModule.forRoot({
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
@@ -26,9 +28,11 @@ import { DashboardPageComponent } from './dashboard.component';
       tertiaryColour: '#0082f0'
     }),
     AngularMaterialModule,
-    CustomCardModule
+    CustomCardModule,
   ],
-  providers: []
+  providers: [
+    AwesomeAPIService
+  ]
 })
 export class DashboardModule {
 }

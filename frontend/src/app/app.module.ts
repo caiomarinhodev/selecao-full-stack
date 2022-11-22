@@ -19,7 +19,6 @@ import { NotificationModule } from './core/module/notification/notification.modu
 import { CrudService } from './core/service/crud.service';
 import { SearchService } from './core/service/search.service';
 import { AppTranslateService } from './core/service/translate.service';
-import { CustomCardModule } from './pages/dashboard/custom-card/custom-card.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';

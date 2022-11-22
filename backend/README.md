@@ -41,11 +41,23 @@ Para rodar a aplicação você deverá seguir os passos abaixo.
 ```
 
 ## Testes
-Para rodar os testes, basta executar o comando abaixo:
+
+Todos os testes criados são testes de integração, pois não haveria necessidade de implementação de testes unitários
+visto que o sistema ainda é pequeno, e todas as funções e métodos implementados são utilizados dentro dos testes de
+integração, portanto, os comportamentos esperados de cada função são testados nestes testes de integração, e desta forma
+não há necessidade de testes unitários.
+
+Também há testes de endpoints realizados na ferramenta Postman, que podem ser encontrados no arquivo "
+backend_cotacoes.postman_collection.json" na raiz do projeto. Basta importar o arquivo e rodar a coleção criada.
+
+Para rodar os testes de integração implementados, basta executar o comando abaixo:
 
 ```bash
   python manage.py test
 ```
+
+Uma suíte com 20 testes irá rodar. Você pode verificar o resultado no terminal. Os testes podem ser encontrados nas
+respectivas pastas "tests" de cada módulo.
 
 ## Endpoints
 
@@ -101,7 +113,7 @@ Os dados a serem enviados são:
     ```http
     GET /api/awesome/tickers/
     ```
-  
+
 - [x] Listar cotações por moeda
 
     ```http
@@ -124,7 +136,8 @@ Os dados a serem enviados são:
 ## 🚀 Sobre o desafio
 
 O problema consiste em criar um backend para um sistema de cotações de moedas. Um dos modelos de autenticação escolhida
-foi utilizando o Django Knox, que é um gerenciador de tokens. Ele trabalha gerando um token de autenticação para o Django
+foi utilizando o Django Knox, que é um gerenciador de tokens. Ele trabalha gerando um token de autenticação para o
+Django
 Rest Framework.
 
 Como um dos requisitos era consumir 2 API's diferentes, optei por criar duas aplicações Django separadas, uma para cada
@@ -151,4 +164,4 @@ Este projeto esta sobe a licença [MIT](./LICENSE).
 [![Linkedin Badge](https://img.shields.io/badge/-Caio%20Marinho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/caiomarinho/)](https://www.linkedin.com/in/caiomarinho/)
 [![Gmail Badge](https://img.shields.io/badge/-caiomarinho8@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:caiomarinho8@gmail.com)](mailto:caiomarinho8@gmail.com)
 
-Made with ❤️ by Caio Marinho 👋🏽 [Get in Touch!](https://www.linkedin.com/in/caiomarinho/)
+Made with ❤️ by [Caio Marinho!](https://caiomarinho.tech/) 👋🏽 [Get in Touch!](https://www.linkedin.com/in/caiomarinho/)

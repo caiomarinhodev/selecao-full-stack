@@ -59,6 +59,9 @@ export class UserService extends BaseService {
     this.post(AuthURL.LOGOUT, {}).subscribe(() => {
       localStorage.removeItem(STORAGE_KEY);
       window.location.replace('/');
+    }, err => {
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.replace('/login');
     });
   }
 }

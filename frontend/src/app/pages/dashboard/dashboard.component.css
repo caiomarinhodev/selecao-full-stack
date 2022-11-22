@@ -20,4 +20,29 @@
     /* Gray 1 */
     color: #333333;
     margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.select-ticker {
+    margin-top: 40px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 8px;
+
+    /* Branco */
+    background: #FFFFFF;
+
+    /* Gray 5 */
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+}
+
+.reload-icon {
+    margin-top: 40px;
+    color: #828282;
 }

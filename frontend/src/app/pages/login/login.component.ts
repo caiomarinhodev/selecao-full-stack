@@ -15,6 +15,7 @@ import { CustomValidators } from 'src/app/shared/validator/custom-validators';
 export class LoginComponent extends BaseComponent implements OnInit {
 
   loginForm: FormGroup;
+  loading: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute,
     vcr: ViewContainerRef,
@@ -56,8 +57,10 @@ export class LoginComponent extends BaseComponent implements OnInit {
     }
     this.checkRemember();
 
+    this.loading = true;
     this.userService.login(username, password).subscribe(
       result => {
+        this.loading = false;
         console.log('User is logged!');
         console.log(this.userService.getUser());
         this.navigate(['/']);

@@ -4,6 +4,7 @@ import { AppInjector } from '../../app.injector';
 import { ActivatedRoute } from '@angular/router';
 import { BaseModelComponent } from '../../core/interface/base-model.component';
 import { UserService } from '../../service/user/user.service';
+import { AwesomeAPIService } from 'src/app/service/api/awesomeapi.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,16 +15,53 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   protected service: CrudService = AppInjector.get(CrudService);
 
-  cards: any;
+  available_tickers: any;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  selectedTicker: any;
+
+  loading: boolean = false;
+
+  constructor(private route: ActivatedRoute, private userService: UserService,
+    private awesomeService: AwesomeAPIService) {
     super();
   }
 
 
   ngOnInit(): void {
     super.ngOnInit();
-    this.navigate(['/']);
+    this.getAllAvailableTickers();
+  }
+
+  getAllAvailableTickers() {
+    this.loading = true;
+    this.awesomeService.getAllAvailableTickers().subscribe((data: any) => {
+      let keys = Object.keys(data);
+      let values = Object.values(data);
+      this.available_tickers = [];
+      for (let i = 0; i < keys.length; i++) {
+        this.available_tickers.push({ 'key': keys[i], 'value': values[i] });
+      }
+      this.selectedTicker = this.available_tickers[0]['key'];
+      console.log(this.selectedTicker);
+      this.loading = false;
+    },
+      error => {
+        this.loading = false;
+        if (error.status === 401) {
+          this.userService.logout();
+          this.notification.error('Token expirado');
+        }
+        this.router.navigate(['/login']);
+      });
+  }
+
+  refresh() {
+    this.getAllAvailableTickers();
+  }
+
+
+  selectTicker(event) {
+    console.log(event);
   }
 
 
