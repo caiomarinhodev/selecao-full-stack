@@ -40,7 +40,6 @@ export class CustomCardComponent implements OnInit {
     let code_split = key.split('Z');
     let code = code_split[0].replace('XX', '') + 'C';
     let codein = code_split[1]
-    console.log(code, codein);
     return [code, codein];
   }
 

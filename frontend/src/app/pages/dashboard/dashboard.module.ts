@@ -8,6 +8,7 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { AwesomeAPIService } from 'src/app/service/api/awesomeapi.service';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
 import { CustomCardModule } from './custom-card/custom-card.module';
+import { CustomTableModule } from './custom-table/custom-table.module';
 import { DashboardPageComponent } from './dashboard.component';
 
 
@@ -29,6 +30,7 @@ import { DashboardPageComponent } from './dashboard.component';
     }),
     AngularMaterialModule,
     CustomCardModule,
+    CustomTableModule
   ],
   providers: [
     AwesomeAPIService
