@@ -60,6 +60,12 @@ table {
     width: 100%;
 }
 
+.mat-elevation-z8{    
+    border-radius: 8px;
+    overflow:hidden !important;
+}
+
+
 td.mat-column-star {
     width: 20px;
     padding-right: 8px !important;
@@ -96,7 +102,7 @@ td.mat-column-star {
         flex: 0 0 83.333333%;
     }
 
-    .select-ticker{
+    .select-ticker {
         margin-top: 0px;
         margin-bottom: 24px;
     }
