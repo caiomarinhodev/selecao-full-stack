@@ -67,7 +67,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   getHistoryByTicker(ticker) {
     this.loading = true;
-    this.awesomeService.getHistoryTicker(ticker, 10).subscribe((data: Ticker[]) => {
+    this.awesomeService.getHistoryTicker(ticker, 30).subscribe((data: Ticker[]) => {
       console.log(data);
       if (data.hasOwnProperty('error')) {
         this.loading = false;

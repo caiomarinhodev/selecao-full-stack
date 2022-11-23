@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others --success first",
+    "e2e-gui": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:open\" --kill-others --success first"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +25,7 @@
     "@angular/platform-browser": "^6.1.6",
     "@angular/platform-browser-dynamic": "^6.1.6",
     "@angular/router": "^6.1.6",
+    "@cypress/schematic": "^1.6.0",
     "@ngx-lite/input-range": "^0.3.3",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
@@ -74,6 +78,8 @@
     "@types/lodash.some": "4.6.6",
     "@types/node": "^10.9.3",
     "codelyzer": "^4.4.4",
+    "concurrently": "^7.6.0",
+    "cypress": "^11.2.0",
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "^4.2.1",
     "karma": "^3.0.0",
@@ -88,6 +94,7 @@
     "tsickle": "^0.32.1",
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
-    "typescript": "^2.7.0"
+    "typescript": "^2.7.0",
+    "wait-on": "^6.0.1"
   }
 }
