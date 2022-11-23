@@ -70,3 +70,36 @@
     color: #828282;
     margin-top: 24px;
 }
+
+@media (max-width: 576px) {
+    .example-card {
+        margin-bottom: 16px;
+    }
+
+    .value {
+        font-size: 48px;
+    }
+}
+
+@media (min-width: 576px) {
+    .example-card {
+        margin-bottom: 16px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .example-card {
+        margin-bottom: 0px;
+    }
+
+    .value {
+        font-size: 35px;
+    }
+}
+
+@media (min-width: 992px) {
+    .value {
+        font-size: 48px;
+    }
+}
