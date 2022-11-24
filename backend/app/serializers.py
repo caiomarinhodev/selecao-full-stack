@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
 
     class Meta:
+        ref_name = "User"
         model = User
         fields = ('id', 'username', 'email')
 
@@ -19,6 +20,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     """
 
     class Meta:
+        ref_name = "Register User"
         model = User
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
@@ -38,6 +40,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
+    class Meta:
+        ref_name = "Login User"
+
     """
     Login serializer
     """
