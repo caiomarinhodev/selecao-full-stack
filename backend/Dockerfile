@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 RUN ls
 
-EXPOSE 8080
+EXPOSE 8000

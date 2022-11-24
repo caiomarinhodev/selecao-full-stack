@@ -60,9 +60,9 @@ table {
     width: 100%;
 }
 
-.mat-elevation-z8{    
+.mat-elevation-z8 {
     border-radius: 8px;
-    overflow:hidden !important;
+    overflow: hidden !important;
 }
 
 
@@ -89,6 +89,70 @@ td.mat-column-star {
 .mat-form-field {
     font-size: 14px;
     width: 100%;
+}
+
+
+.coin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+
+    width: 72px;
+    height: 72px;
+
+    margin: 16px 0px 16px 32px;
+
+    background: #F4C23B;
+    border-radius: 99px;
+
+}
+
+.item-table {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.04em;
+    color: #333333;
+}
+
+.ticker-name {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: -0.04em;
+    color: #333333;
+}
+
+.badge-pct-change {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 12px;
+    gap: 10px;
+    width: 60px;
+    height: 37px;
+    border-radius: 8px;
+}
+
+.primary {
+    background: #F4C23B;
+}
+
+.secondary {
+    background: #E0E0E0;
+}
+
+.text-pct-change {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.04em;
+    color: #333333;
 }
 
 @media (max-width: 575px) {

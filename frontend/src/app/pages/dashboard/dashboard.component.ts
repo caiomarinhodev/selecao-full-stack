@@ -23,7 +23,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   loading: boolean = false;
 
-  displayedColumns: string[] = ['name', 'timestamp', 'low', 'high', 'pctChange'];
+  displayedColumns: string[] = ['symbol', 'name', 'timestamp', 'low', 'high', 'pctChange'];
 
   source: Ticker[] = [];
 
@@ -65,6 +65,10 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
     }
   }
 
+  isNegative(strValue) {
+    return strValue.indexOf('-') > -1;
+  }
+
   getHistoryByTicker(ticker) {
     this.loading = true;
     this.awesomeService.getHistoryTicker(ticker, 30).subscribe((data: Ticker[]) => {
@@ -82,6 +86,9 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
           if (!element.hasOwnProperty('name')) {
             element.name = firstElement.name;
           }
+          if (!element.hasOwnProperty('code')) {
+            element.code = firstElement.code;
+          }
         });
         console.log(sourceData);
         this.dataSource.data = sourceData;
@@ -97,7 +104,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
         this.router.navigate(['/login']);
       });
   }
-  
+
 
   getAllAvailableTickers() {
     this.loading = true;
@@ -129,6 +136,11 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   selectTicker(event) {
     this.getHistoryByTicker(event);
+  }
+
+  isBitcoin(ticker) {
+    let tickers_btc = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH', 'EOS', 'BSV', 'XLM', 'TRX', 'ADA', 'XMR', 'DASH', 'NEO', 'ETC', 'ZEC', 'XEM', 'QTUM', 'BTG', 'LSK', 'OMG', 'ZRX', 'BAT', 'REP', 'XVG', 'DOGE', 'DCR', 'XZC', 'DGB', 'BTX', 'BCD', 'BTS', 'XRB', 'ARDR', 'KMD', 'PPT', 'STEEM', 'STRAT', 'WAVES', 'SC', 'KCS', 'GNT', 'ARK', 'GAS', 'ICX', 'WTC', 'SNT', 'ZIL', 'BNT', 'AE', 'POWR', 'ELF', 'KNC', 'MANA', 'WAX', 'RHOC', 'GXS', 'QASH', 'ENJ', 'RDN', 'LOOM', 'CVC', 'BQX', 'WAN', 'FUN', 'MCO', 'REQ', 'DGD', 'DRGN', 'STORJ', 'CND', 'PAY', 'ADX', 'POE', 'LINK', 'VET', 'IOST', 'MITH', 'NAS', 'NPXS', 'CMT', 'THETA', 'WPR', 'ENG', 'MFT', 'DENT', 'LRC', 'ZEN', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT']
+    return tickers_btc.includes(ticker.code);
   }
 
 
