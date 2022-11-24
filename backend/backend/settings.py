@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'corsheaders',
-    'app',
+    'app.apps.AppConfig',
     'awesomeapi',
     'krakenapi',
     'django_filters',
@@ -97,10 +97,30 @@ DATABASES = {
     }
 }
 
-# To deploy on Render.com (change database name)
-# db_from_env = dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/personalsite',
-#                                     conn_max_age=600)
-# DATABASES['default'].update(db_from_env)
+NAME_DB = os.getenv('DB_NAME', 'db.sqlite3')
+
+if 'sqlite' in NAME_DB:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+elif 'postgres' in NAME_DB:
+    db_from_env = dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/{}'.format(NAME_DB),
+                                         conn_max_age=600)
+    DATABASES['default'].update(db_from_env)
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+
+            'HOST': os.getenv('DB_HOST', 'db'),
+            'NAME': os.getenv('DB_NAME', 'app'),
+            'USER': os.getenv('DB_USER', 'postgres'),
+            'PASSWORD': os.getenv('DB_PASS', 'supersecretpassword'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
