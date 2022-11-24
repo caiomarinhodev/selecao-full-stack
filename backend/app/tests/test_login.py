@@ -23,7 +23,7 @@ class AuthLoginApiTests(TestCase):
 
     def test_login_user(self):
         """Test login a user"""
-        token = self.register_user()
+        self.register_user()
         payload = {
             'username': 'testuser',
             'password': 'testpass'

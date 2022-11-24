@@ -50,13 +50,10 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
   register(username, email, password): void {
     this.userService.register(username, email, password).subscribe(
       result => {
-        console.log('User is created!', result);
-        console.log(this.userService.getUser());
         this.notification.successText('Usuário criado com sucesso!');
         this.navigate(['/login']);
       },
       err => {
-        console.log(err);
         this.notification.error('Usuário ou senha inválida!');
       }
     );

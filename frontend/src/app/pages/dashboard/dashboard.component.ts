@@ -21,7 +21,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
 
   selectedTicker: any;
 
-  loading: boolean = false;
+  loading = false;
 
   displayedColumns: string[] = ['symbol', 'name', 'timestamp', 'low', 'high', 'pctChange'];
 
@@ -72,16 +72,15 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
   getHistoryByTicker(ticker) {
     this.loading = true;
     this.awesomeService.getHistoryTicker(ticker, 30).subscribe((data: Ticker[]) => {
-      console.log(data);
       if (data.hasOwnProperty('error')) {
         this.loading = false;
         this.notification.error(data['error']);
       } else {
-        let sourceData = data;
-        let firstElement = data[0];
+        const sourceData = data;
+        const firstElement = data[0];
 
         sourceData.forEach(element => {
-          let date = new Date(parseInt(element.timestamp) * 1000);
+          const date = new Date(parseInt(element.timestamp) * 1000);
           element.timestamp = date.toLocaleString();
           if (!element.hasOwnProperty('name')) {
             element.name = firstElement.name;
@@ -90,7 +89,6 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
             element.code = firstElement.code;
           }
         });
-        console.log(sourceData);
         this.dataSource.data = sourceData;
         this.loading = false;
       }
@@ -109,8 +107,8 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
   getAllAvailableTickers() {
     this.loading = true;
     this.awesomeService.getAllAvailableTickers().subscribe((data: any) => {
-      let keys = Object.keys(data);
-      let values = Object.values(data);
+      const keys = Object.keys(data);
+      const values = Object.values(data);
       this.available_tickers = [];
       for (let i = 0; i < keys.length; i++) {
         this.available_tickers.push({ 'key': keys[i], 'value': values[i] });
@@ -139,7 +137,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
   }
 
   isBitcoin(ticker) {
-    let tickers_btc = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH', 'EOS', 'BSV', 'XLM', 'TRX', 'ADA', 'XMR', 'DASH', 'NEO', 'ETC', 'ZEC', 'XEM', 'QTUM', 'BTG', 'LSK', 'OMG', 'ZRX', 'BAT', 'REP', 'XVG', 'DOGE', 'DCR', 'XZC', 'DGB', 'BTX', 'BCD', 'BTS', 'XRB', 'ARDR', 'KMD', 'PPT', 'STEEM', 'STRAT', 'WAVES', 'SC', 'KCS', 'GNT', 'ARK', 'GAS', 'ICX', 'WTC', 'SNT', 'ZIL', 'BNT', 'AE', 'POWR', 'ELF', 'KNC', 'MANA', 'WAX', 'RHOC', 'GXS', 'QASH', 'ENJ', 'RDN', 'LOOM', 'CVC', 'BQX', 'WAN', 'FUN', 'MCO', 'REQ', 'DGD', 'DRGN', 'STORJ', 'CND', 'PAY', 'ADX', 'POE', 'LINK', 'VET', 'IOST', 'MITH', 'NAS', 'NPXS', 'CMT', 'THETA', 'WPR', 'ENG', 'MFT', 'DENT', 'LRC', 'ZEN', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT']
+    const tickers_btc = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH', 'EOS', 'BSV', 'XLM', 'TRX', 'ADA', 'XMR', 'DASH', 'NEO', 'ETC', 'ZEC', 'XEM', 'QTUM', 'BTG', 'LSK', 'OMG', 'ZRX', 'BAT', 'REP', 'XVG', 'DOGE', 'DCR', 'XZC', 'DGB', 'BTX', 'BCD', 'BTS', 'XRB', 'ARDR', 'KMD', 'PPT', 'STEEM', 'STRAT', 'WAVES', 'SC', 'KCS', 'GNT', 'ARK', 'GAS', 'ICX', 'WTC', 'SNT', 'ZIL', 'BNT', 'AE', 'POWR', 'ELF', 'KNC', 'MANA', 'WAX', 'RHOC', 'GXS', 'QASH', 'ENJ', 'RDN', 'LOOM', 'CVC', 'BQX', 'WAN', 'FUN', 'MCO', 'REQ', 'DGD', 'DRGN', 'STORJ', 'CND', 'PAY', 'ADX', 'POE', 'LINK', 'VET', 'IOST', 'MITH', 'NAS', 'NPXS', 'CMT', 'THETA', 'WPR', 'ENG', 'MFT', 'DENT', 'LRC', 'ZEN', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT', 'RVN', 'DCN', 'XIN', 'BIFI', 'BCH', 'BCHABC', 'BCHSV', 'BTT', 'ONT'];
     return tickers_btc.includes(ticker.code);
   }
 
@@ -169,11 +167,11 @@ export interface Ticker {
   low: number;
   high: number;
   pctChange: string;
-  code: string,
-  codein: string,
-  varBid: string,
-  bid: string,
-  ask: string,
-  timestamp: string,
-  create_date: string
+  code: string;
+  codein: string;
+  varBid: string;
+  bid: string;
+  ask: string;
+  timestamp: string;
+  create_date: string;
 }

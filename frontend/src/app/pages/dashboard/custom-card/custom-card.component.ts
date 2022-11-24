@@ -17,15 +17,15 @@ export class CustomCardComponent implements OnInit {
   @Input()
   api: string;
 
-  isBitcoin: boolean = false;
+  isBitcoin = false;
 
-  hasDescription: boolean = false;
+  hasDescription = false;
 
-  value: number = 0;
+  value = 0;
 
-  code: string = 'USD';
+  code = 'USD';
 
-  codein: string = 'USD';
+  codein = 'USD';
 
 
   constructor(private awesomeService: AwesomeAPIService, private krakenService: KrakenAPIService,
@@ -46,16 +46,16 @@ export class CustomCardComponent implements OnInit {
   }
 
   getCodes(key) {
-    let code_split = key.split('Z');
-    let code = code_split[0].replace('XX', '') + 'C';
-    let codein = code_split[1]
+    const code_split = key.split('Z');
+    const code = code_split[0].replace('XX', '') + 'C';
+    const codein = code_split[1];
     return [code, codein];
   }
 
   getTickerByAPI(ticker, api) {
     if (api === 'awesome') {
       this.awesomeService.getTicker(ticker).subscribe(data => {
-        let key = Object.keys(data)[0];
+        const key = Object.keys(data)[0];
         this.value = data[key].bid;
         this.code = data[key].code;
         this.codein = data[key].codein;
@@ -63,8 +63,8 @@ export class CustomCardComponent implements OnInit {
     } else if (api === 'kraken') {
       this.isBitcoin = true;
       this.krakenService.getTicker(ticker).subscribe(data => {
-        let key = Object.keys(data)[0];
-        let identifiedCodes = this.getCodes(key);
+        const key = Object.keys(data)[0];
+        const identifiedCodes = this.getCodes(key);
         this.value = data[key].a[0];
         this.code = identifiedCodes[0];
         this.codein = identifiedCodes[1];

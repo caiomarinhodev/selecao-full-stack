@@ -92,7 +92,7 @@ export abstract class BaseService {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
-      httpHeaders = new HttpHeaders().set('Accept-Language', this.translateService.getLang()).set("Authorization", "Token " + this.getUser()['token']);
+      httpHeaders = new HttpHeaders().set('Accept-Language', this.translateService.getLang()).set('Authorization', 'Token ' + this.getUser()['token']);
     } else {
       httpHeaders = new HttpHeaders().set('Accept-Language', this.translateService.getLang());
     }

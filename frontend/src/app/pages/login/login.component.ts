@@ -15,7 +15,7 @@ import { CustomValidators } from 'src/app/shared/validator/custom-validators';
 export class LoginComponent extends BaseComponent implements OnInit {
 
   loginForm: FormGroup;
-  loading: boolean = false;
+  loading = false;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute,
     vcr: ViewContainerRef,
@@ -61,8 +61,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
     this.userService.login(username, password).subscribe(
       result => {
         this.loading = false;
-        console.log('Usuário já está logado!');
-        console.log(this.userService.getUser());
         this.navigate(['/']);
       },
       err => {

@@ -30,7 +30,6 @@ export class HomePageComponent {
     this.notification.setView(vcr);
     this.configTranslate();
     if (this.userService.isLogged()) {
-      console.log('User is logged!');
       this.user = this.userService.getUser();
     } else {
       this.router.navigate(['/login']);

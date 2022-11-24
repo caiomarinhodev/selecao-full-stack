@@ -1,8 +1,6 @@
-from knox import views as knox_views
 from django.urls import path, include
+from knox import views as knox_views
 
-from awesomeapi import viewsets as awesomeapi_viewsets
-from krakenapi import viewsets as krakenapi_viewsets
 from app.viewsets import SignUpAPI, SignInAPI, MainUser
 
 urlpatterns = []

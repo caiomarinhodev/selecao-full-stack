@@ -131,7 +131,7 @@ export abstract class BaseListComponent extends BaseModelComponent implements On
    * this method.
    */
   onSearch(event): void {
-    let newSearch = event.search;
+    const newSearch = event.search;
     this.currentFilter = event.filter;
     if (newSearch !== this.currentSearch) {
       this.currentPage = 1;
