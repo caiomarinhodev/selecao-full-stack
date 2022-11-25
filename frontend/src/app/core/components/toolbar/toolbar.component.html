@@ -1,11 +1,12 @@
 <mat-toolbar class="toolbar">
   <img src="https://i.imgur.com/CNXThha.png" alt="logo" />
   <span class="example-spacer"></span>
-  <button mat-icon-button>
+  <!-- <button mat-icon-button>
       <label>EN</label>
-  </button>
+  </button> -->
+  <app-select-language></app-select-language>
   &nbsp;
   <button mat-icon-button class="example-icon exit-button" *ngIf="isLogged()" (click)="logout($event)">
-    <mat-icon >exit_to_app</mat-icon>
+    <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
