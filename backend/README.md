@@ -7,6 +7,17 @@ Hub que permitirá listar cotações em tempo real de algumas moedas utilizando 
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)
 
+## **Tabela de Conteúdos**
+
+- [📝 Descrição](#descrição)
+- [🚀 Instalação](#instalação)
+- [Testes](#testes)
+- [Qualidade de código](#qualidade-de-código)
+- [Endpoints](#endpoints)
+- [Docker](#docker)
+- [Licença](#licença)
+- [Autor](#autor)
+
 ## 📝 Descrição
 
 Este projeto foi desenvolvido com Django Framework, Django Rest Framework, Django Knox e PostgreSQL.
@@ -58,6 +69,32 @@ Para rodar os testes de integração implementados, basta executar o comando aba
 
 Uma suíte com 20 testes irá rodar. Você pode verificar o resultado no terminal. Os testes podem ser encontrados nas
 respectivas pastas "tests" de cada módulo.
+
+## Qualidade de código
+
+Para verificar a qualidade de código, foi utilizado o Flake8, que é um linter de código.
+
+Flake8 é uma biblioteca Python que envolve PyFlakes, pycodestyle e o script McCabe de Ned Batchelder. É um ótimo kit de
+ferramentas para verificar sua base de código em relação ao estilo de codificação (PEP8), erros de programação (como
+“biblioteca importada, mas não utilizada” e “nome indefinido”) e para verificar a complexidade ciclomática.
+
+Para rodar o Flake8, basta
+executar o comando abaixo:
+
+```bash
+  flake8
+```
+
+Erros mais comuns onde foram todos corrigidos com a utilização do Flake8:
+
+- [x] E501 line too long (> 140 characters)
+- [x] E231 missing whitespace after ','
+- [x] E305 expected 2 blank lines after class or function definition, found 1
+- [x] E303 too many blank lines
+- [x] E261 at least two spaces before inline comment
+- [x] E225 missing whitespace around operator
+- [x] E128 continuation line under-indented for visual indent
+
 
 ## Endpoints
 
@@ -133,22 +170,41 @@ Os dados a serem enviados são:
     GET /api/kraken/?ticker={ticker}
     ```
 
-## 🚀 Sobre o desafio
 
-O problema consiste em criar um backend para um sistema de cotações de moedas. Um dos modelos de autenticação escolhida
-foi utilizando o Django Knox, que é um gerenciador de tokens. Ele trabalha gerando um token de autenticação para o
-Django
-Rest Framework.
+## Docker
+Além da instalação manual, o projeto também pode ser executado em um container Docker. Para isso, temos dois caminhos bem fáceis. Assim, basta seguir os passos abaixo:
 
-Como um dos requisitos era consumir 2 API's diferentes, optei por criar duas aplicações Django separadas, uma para cada
-API, tornando sua manutenção mais simplificada.
+### Primeiro caminho
 
-A aplicação principal é a "app", nela temos as principais rotas do sistema ("urls.py").
-A aplicação "app" roteia os endpoints do KrakenAPI para '/kraken' e os endpoints do AwesomeAPI para '/awesome', bem como
-as rotas de autenticação ('/auth').
+Com o docker e docker-compose instalados, basta rodar o comando abaixo na raiz do projeto backend:
 
-A aplicação "awesome" é responsável por consumir a API do AwesomeAPI e retornar os dados para a aplicação principal.
-A aplicação "kraken" é responsável por consumir a API do KrakenAPI e retornar os dados para a aplicação principal.
+```bash
+  docker-compose up --build
+```
+
+A aplicação já estará rodando em http://localhost:8000
+
+
+### Segundo caminho
+
+1 - Crie a imagem do projeto
+
+```bash
+  docker build -t backend_cotacoes .
+```
+
+2 - Rode o container
+
+```bash
+  docker run -p 8000:8000 backend_cotacoes
+```
+
+3 - Acesse o endereço do backend:
+
+```bash
+  http://localhost:8000/
+```
+
 
 ## 📝 Licença
 

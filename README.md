@@ -1,59 +1,120 @@
-# Beeteller - Desenvolvedor Full Stack
+# Beeteller - Cotacoes App
 
-O objetivo dessa atividade é avaliar tecnicamente os candidatos que participam da nossa seleção para vaga de desenvolver Full Stack. O teste é realizado para as vagas de todos os níveis, mas para cada vaga existe critérios mais específicos. 
-Preste bastante atenção nas instruções e boa sorte! :)
+[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
+[![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)
 
-
-## Instruções
-
-Você deverá realizar um clone deste projeto e desenvolver todo o seu código dentro de um repositório e nós enviar o link final. Use o README do seu repositório para explicar um pouco de como foi o desafio, as decisões que você tomou e as instruções para instalar e rodar corretamente o projeto.
-
-Sinta-se livre e tente mostrar a sua capacidade nos impressionando, mas não esqueça de atingir os objetivos principais do projeto. Faça o seu melhor!
-
-## Let's code
-
-Você irá construir uma aplicação, com back-end e front-end separados, para listar cotações em tempo real (periodicamente atualizadas) de algumas moedas utilizando algumas APIs. A aplicação conta com uma tela simples de login para realizar autenticação e um dashboard onde serão mostrados as cotações.
-
-Como o desafio não é para um designer e sim para um dev, construimos um [protótipo no Figma](https://www.figma.com/file/k7SF69GbpxkgtbaPaSISow/Case?node-id=0%3A1) de como deve ficar a interface do front-end.
-
-Como estamos esperando um projeto de back-end e um de front-end, então o seu front-end precisa consumir a aplicação do back-end.
-
-As APIs que você deve consumir estão abaixo:
-
-* [API de moedas BRL/USD](https://docs.awesomeapi.com.br/api-de-moedas)
-* [API de moedas BTC/EUR](https://api.kraken.com/0/public/Ticker?pair=XBTeur) (primeiro parâmetro da chave `a`)
-* [API de moedas BTC/USD](https://api.kraken.com/0/public/Ticker?pair=XBTusd) (primeiro parâmetro da chave `a`)
-
-De preferência se você tiver domínio, esperamos ver o front-end em Angular ou React, e o backend em NodeJS ou Django. Mas fique a vontade para utilizar outros frameworks se acreditar que o seu desempenho será melhor por isso.
+Hub que permitirá listar cotações em tempo real de algumas moedas utilizando algumas APIs.
 
 
-### O que nós esperamos ver no seu desafio
+## **Tabela de Conteúdos**
 
-* Ver a utilização do framework da melhor forma possível (metodologia/estrutura).
-* Ver a utilização de dependency managers (npm, webpack, pip, yarn)
-* Rotas de APIs bem estruturadas
-* Separação adequada de responsabilidades (back-end e front-end)
-* Layout responsivo
+- [Beeteller - Cotacoes App](#beeteller---cotacoes-app)
+  - [🚀 Sobre o desafio](#sobre-o-desafio)
+  - [📝 Descrição](#-descrição)
+  - [🛠 Tecnologias utilizadas](#-tecnologias-utilizadas)
+  - [📦 Instalação](#-instalação)
+  - [📝 Licença](#-licença)
+  - [📝 Autor](#-autor)
 
-### O que nós ficaríamos felizes de ver em seu teste
 
-* Testes unitários e/ou testes de integração
 
-### O que nos impressionaria
+## 🚀 Sobre o desafio
 
-* Ver o código rodando live (Bucket estático S3, Heroku, Firebase Hosting)
+O problema consiste em criar um backend para um sistema de cotações de moedas. Um dos modelos de autenticação escolhida
+foi utilizando o Django Knox, que é um gerenciador de tokens. Ele trabalha gerando um token de autenticação para o
+Django
+Rest Framework.
 
-### O que nós não gostaríamos
+Como um dos requisitos era consumir 2 API's diferentes, optei por criar duas aplicações Django separadas, uma para cada
+API, tornando sua manutenção mais simplificada.
 
-* Descobrir que não foi você quem fez seu desafio :(
-* Ver commits grandes, sem muita explicação nas mensagens em seu repositório 
-* Não conseguir rodar a sua aplicação por algum erro de compilação
+A aplicação principal é a "app", nela temos as principais rotas do sistema ("urls.py").
+A aplicação "app" roteia os endpoints do KrakenAPI para '/kraken' e os endpoints do AwesomeAPI para '/awesome', bem como
+as rotas de autenticação ('/auth').
 
-## O que avaliaremos de seu teste
+A aplicação "awesome" é responsável por consumir a API do AwesomeAPI e retornar os dados para a aplicação principal.
+A aplicação "kraken" é responsável por consumir a API do KrakenAPI e retornar os dados para a aplicação principal.
 
-* Histórico de commits do git
-* As instruções de como rodar o projeto
-* Estruturação do projeto
-* Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
-* Alcance dos objetivos propostos
-* Adaptação mobile (layout responsivo)
+No frontend da aplicação, foi utilizado o framework Angular, que é um framework de desenvolvimento web de código aberto.
+O desafio encontrado foi que o Design possui características únicas, e talvez eu necessitaria de mais tempo para poder
+concluir o design proposto, seguindo "a risca" todos os elementos propostos.
+Por isso, optei por utilizar o framework Angular Material, que é um framework de componentes de interface de usuário (
+Material Design e Bootstrap), ferramentas estas que possuo um pouco de domínio e que me auxiliaram na construção das
+páginas e componentes, a fim de cumprir com as funcionalidades necessárias para a execução do projeto.
+
+## 📝 Descrição do projeto
+
+Como dito anteriormente, o projeto consistem duas grandes aplicações: Frontend e Backend. Ambas aplicações funcionam
+independentes uma da outra, e se comunicam através do protocolo JSON. Para o correto funcionamento da aplicação, o frontend depende do backend para ter seus componentes renderizando os dados
+corretamente.
+
+Para entender melhor o funcionamento do projeto, segue abaixo uma imagem que representa o fluxo de comunicação entre os dois projetos.
+
+![Fluxo de comunicação entre os projetos](https://i.imgur.com/XUIyi9P.png)
+
+## 🛠 Tecnologias utilizadas
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+### Backend
+
+- [Django](https://www.djangoproject.com/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+- [Django Knox](https://james1345.github.io/django-rest-knox/)
+- [Swagger](https://drf-yasg.readthedocs.io/en/stable/readme.html)
+- [Docker](https://www.docker.com/)
+- [PyTest](https://docs.pytest.org/en/stable/)
+- [Postman](https://www.postman.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Pep8](https://pypi.org/project/pep8/)
+- [Flake8](https://flake8.pycqa.org/en/latest/)
+- [PyLint](https://www.pylint.org/)
+
+### Frontend
+
+- [Angular](https://angular.io/)
+- [Angular Material](https://material.angular.io/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Docker](https://www.docker.com/)
+- [Cyress](https://www.cypress.io/)
+- [TsLint](https://palantir.github.io/tslint/)
+
+
+
+
+## 📦 Instalação
+
+Você encontrará detalhes de como instalar (MANUAL) o projeto no README que se encontra nas pastas raiz de cada uma das
+aplicações (backend e frontend).
+
+### Docker
+
+Além de instalações de forma manual, gostaria de citar que foi implementado arquivos de implantação do Docker, que é uma
+plataforma de código aberto que automatiza o desdobramento de aplicativos em contêineres de software. Os contêineres
+permitem que um aplicativo seja executado em qualquer ambiente, independentemente de suas dependências do sistema
+operacional.
+
+Sendo assim, ambas as aplicações você pode executar através do Docker, basta executar os comandos abaixo, dentro das
+pastas raiz de cada projeto (backend e frontend):
+
+```bash
+  docker-compose up --build
+```
+
+## 📝 Licença
+
+Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
+
+## 📝 Autor
+
+<a href="#">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/7137962?v=4" width="100px;" alt=""/>
+</a>
+ <br />
+ <sub><b>Caio Marinho</b></sub>
+ <a href="#" title="Caio Marinho">🚀</a>
+
+[![Linkedin Badge](https://img.shields.io/badge/-Caio%20Marinho-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/caiomarinho/)](https://www.linkedin.com/in/caiomarinho/)
+[![Gmail Badge](https://img.shields.io/badge/-caiomarinho8@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:caiomarinho8@gmail.com)](mailto:caiomarinho8@gmail.com)
+
+Made with ❤️ by [Caio Marinho!](https://caiomarinho.tech/) 👋🏽 [Get in Touch!](https://www.linkedin.com/in/caiomarinho/)
