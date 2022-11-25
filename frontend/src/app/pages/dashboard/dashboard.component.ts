@@ -7,6 +7,7 @@ import { BaseModelComponent } from '../../core/interface/base-model.component';
 import { UserService } from '../../service/user/user.service';
 import { AwesomeAPIService } from 'src/app/service/api/awesomeapi.service';
 import { MatPaginator, MatSort, MatTableDataSource, Sort } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,6 +34,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private route: ActivatedRoute, private userService: UserService,
+    private translate: TranslateService,
     private awesomeService: AwesomeAPIService, private _liveAnnouncer: LiveAnnouncer) {
     super();
   }
@@ -97,7 +99,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
         this.loading = false;
         if (error.status === 401) {
           this.userService.logout();
-          this.notification.error('Token expirado');
+          this.notification.error(this.translate.instant('TOKEN_EXPIRED'));
         }
         this.router.navigate(['/login']);
       });
@@ -121,7 +123,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
         this.loading = false;
         if (error.status === 401) {
           this.userService.logout();
-          this.notification.error('Token expirado');
+          this.notification.error(this.translate.instant('TOKEN_EXPIRED'));
         }
         this.router.navigate(['/login']);
       });

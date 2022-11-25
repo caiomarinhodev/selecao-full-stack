@@ -34,7 +34,7 @@ export class NotificationModule {
   }
 
   successText(text: string) {
-    this.translateService.get('Success').subscribe((message: string) => {
+    this.translateService.get('SUCCESS').subscribe((message: string) => {
       this.toastr.success(text, message, {
         timeOut: 5000
       });
@@ -42,19 +42,19 @@ export class NotificationModule {
   }
 
   error(text: string) {
-    this.translateService.get('Error').subscribe((message: string) => {
+    this.translateService.get('ERROR').subscribe((message: string) => {
       this.toastr.error(text, message);
     });
   }
 
   warning(text: string) {
-    this.translateService.get('Warning').subscribe((message: string) => {
+    this.translateService.get('WARNING').subscribe((message: string) => {
       this.toastr.warning(text, message);
     });
   }
 
   info(text: string) {
-    this.translateService.get('Info').subscribe((message: string) => {
+    this.translateService.get('INFO').subscribe((message: string) => {
       this.toastr.info(text, message);
     });
   }

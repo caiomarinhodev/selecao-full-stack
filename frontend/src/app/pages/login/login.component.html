@@ -8,37 +8,36 @@
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <div class="text-center">
-                                <h3 class="title-login">Olá! Bem vindo de volta.</h3>
-                                <p class="text-muted mb-4 subtitle-login">
-                                    Faça login com seus dados inseridos durante o seu registro.
-                                </p>
+                                <h3 class="title-login" translate="">TITLE_WELCOME_LOGIN</h3>
+                                <p class="text-muted mb-4 subtitle-login" translate>SUBTITLE_WELCOME_LOGIN</p>
                             </div>
                             <form role="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
                                 <div class="form-group mb-3">
-                                    <label for="username" class="label-custom-input ">Usuário</label>
-                                    <input id="username" type="username" placeholder="Digite seu nome de usuário"
+                                    <label for="username" class="label-custom-input " translate>USER</label>
+                                    <input id="username" type="username" placeholder="{{ 'PLACEHOLDER_USER' | translate }}"
                                         required="" formControlName="username" autofocus=""
                                         class="form-control border-0 shadow-sm px-4 custom-input">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="password" class="label-custom-input ">Senha</label>
-                                    <input id="password" type="password" placeholder="Sua senha" required=""
+                                    <label for="password" class="label-custom-input " translate>PASSWORD</label>
+                                    <input id="password" type="password" placeholder="{{ 'PLACEHOLDER_PASSWORD' | translate }}" required=""
                                         formControlName="password"
                                         class="form-control border-0 shadow-sm px-4 text-primary custom-input">
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input id="customCheck1" formControlName="rememberMe" type="checkbox" checked
                                         class="custom-control-input">
-                                    <label for="customCheck1" class="custom-control-label">Esqueceu a senha</label>
+                                    <label for="customCheck1" class="custom-control-label"
+                                        translate>REMEMBER_MY_ACCOUNT</label>
                                 </div>
                                 <button type="submit" [disabled]="!loginForm.valid"
                                     class="btn btn-block text-uppercase mb-2 shadow-sm btn-login">
-                                    <span class="title-button">Login</span>
+                                    <span class="title-button" translate>LOGIN</span>
                                 </button>
                                 <hr />
                                 <button type="button" class="btn btn-block text-uppercase mb-2 shadow-sm btn-registro"
                                     (click)="goToRegister()">
-                                    <span class="title-button">Registro</span>
+                                    <span class="title-button" translate>REGISTER</span>
                                 </button>
                             </form>
                         </div>

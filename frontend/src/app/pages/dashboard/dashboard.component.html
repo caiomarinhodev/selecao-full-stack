@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-11 coin-spacing">
-      <label class="title">Moedas</label>
+      <label class="title" translate>COINS</label>
     </div>
     <div class="col-1 icon-spacing">
       <i class="fa fa-2x fa-refresh reload-icon" (click)="refresh()"></i>
@@ -20,7 +20,7 @@
   </div>
   <div class="row">
     <div class="col-sm-9">
-      <label class="title">Cotações</label>
+      <label class="title" translate>TICKERS</label>
     </div>
     <div class="col-sm-3">
       <select class="form-control select-ticker" [(ngModel)]="selectedTicker" (ngModelChange)="selectTicker($event)">
@@ -52,7 +52,7 @@
 
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por moeda">
-                Moeda
+                <div translate>COIN</div>
               </th>
               <td mat-cell *matCellDef="let element" class='m-card-title'> <span
                   class="ticker-name">{{element.name}}</span> </td>
@@ -60,7 +60,7 @@
 
             <ng-container matColumnDef="timestamp">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por data">
-                Data
+                <div translate>DATE</div>
               </th>
               <td mat-cell *matCellDef="let element" class='m-card-title'>
                 <span class='item-table'>
@@ -71,7 +71,7 @@
 
             <ng-container matColumnDef="low">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por mínima">
-                Mínima
+                <div translate>MINIMUM</div>
               </th>
               <td mat-cell *matCellDef="let element" class='m-card-sub-title'>
                 <span class='item-table'>{{element.low}} </span>
@@ -80,7 +80,7 @@
 
             <ng-container matColumnDef="high">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por máxima">
-                Máxima
+                <div translate>MAXIMUM</div>
               </th>
               <td mat-cell *matCellDef="let element" class='has_label_on_mobile'>
                 <span class='item-table'>
@@ -91,7 +91,7 @@
 
             <ng-container matColumnDef="pctChange">
               <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenado por variação">
-                Variação
+                <div translate>VARIATION</div>
               </th>
               <td mat-cell *matCellDef="let element">
                 <div class="badge-pct-change primary text-center" *ngIf="!isNegative(element.pctChange)">

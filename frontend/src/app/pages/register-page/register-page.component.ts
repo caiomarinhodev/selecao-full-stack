@@ -41,7 +41,7 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.value['password'] !== this.registerForm.value['retype_password']) {
-      this.notification.error('Senhas não conferem!');
+      this.notification.error(this.translate.instant('ERROR_PASSWORD_NOT_MATCH'));
       return;
     }
     this.register(this.registerForm.value['username'], this.registerForm.value['email'], this.registerForm.value['password']);
@@ -50,11 +50,16 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
   register(username, email, password): void {
     this.userService.register(username, email, password).subscribe(
       result => {
-        this.notification.successText('Usuário criado com sucesso!');
+        this.notification.successText(this.translate.instant('USER_REGISTERED'));
         this.navigate(['/login']);
       },
       err => {
-        this.notification.error('Usuário ou senha inválida!');
+        if (err.status === 400) {
+          this.notification.error(this.translate.instant('ERROR_USER_ALREADY_EXISTS'));
+        } else {
+          console.log(err);
+          this.notification.error(this.translate.instant('ERROR_REGISTER'));
+        }
       }
     );
   }
