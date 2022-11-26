@@ -24,10 +24,8 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
     super();
     this.registerForm = this.formBuilder.group(
       {
-        username: new FormControl(undefined, [Validators.required,
-        CustomValidators.noWhitespaceValidator]),
-        email: new FormControl(undefined, [Validators.required,
-        CustomValidators.noWhitespaceValidator]),
+        username: new FormControl(undefined, [Validators.required, CustomValidators.noWhitespaceValidator]),
+        email: new FormControl(undefined, [Validators.required, CustomValidators.noWhitespaceValidator, Validators.email]),
         password: new FormControl(undefined, [Validators.required,
         Validators.minLength(5), Validators.required, Validators.maxLength(255)]),
         retype_password: new FormControl(undefined, [Validators.required,

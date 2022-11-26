@@ -10,6 +10,7 @@ import { ToolbarModule } from 'src/app/core/components/toolbar/toolbar.module';
 import { AngularMaterialModule } from 'src/app/shared/interface/angular-material.module';
 import { UserService } from '../../service/user/user.service';
 import { LoginComponent } from './login.component';
+import { ControlMessageModule } from 'src/app/core/components/control-message/control-message.module';
 
 
 
@@ -21,6 +22,7 @@ import { LoginComponent } from './login.component';
         CommonModule,
         TranslateModule,
         ReactiveFormsModule,
+        ControlMessageModule,
         NgxLoadingModule.forRoot({
             backdropBackgroundColour: 'rgba(0,0,0,0.1)',
             backdropBorderRadius: '4px',
