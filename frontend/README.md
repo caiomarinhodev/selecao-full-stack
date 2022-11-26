@@ -76,6 +76,13 @@ $ npm start
 
 Finalmente, acesse http://localhost:4200 (frontend app).
 
+OBS: Para rodar a aplicação, é necessário que o backend esteja rodando. Para isto, deve-se observar em src/app/shared/url/url.domain.ts o endereço do backend. Você pode alterar o endereço do backend para o endereço local, caso esteja rodando o backend localmente.
+
+```ts
+export const SERVER_URL = 'http://localhost:8000/api/';
+// export const SERVER_URL = 'https://backendcotacoes.onrender.com/api/';
+```
+
 ## Sobre os componentes base (Core).
 
 Os componentes criados foram extendidos de um material de construção minha (pesquisa e estudo), que pode ser encontrado

@@ -13,6 +13,7 @@ Hub que permitirá listar cotações em tempo real de algumas moedas utilizando 
   - [📝 Descrição](#-descrição)
   - [🛠 Tecnologias utilizadas](#-tecnologias-utilizadas)
   - [📦 Instalação](#-instalação)
+  - [Deploys](#deploys)
   - [📝 Licença](#-licença)
   - [📝 Autor](#-autor)
 
@@ -82,8 +83,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TsLint](https://palantir.github.io/tslint/)
 
 
-
-
 ## 📦 Instalação
 
 Você encontrará detalhes de como instalar (MANUAL) o projeto no README que se encontra nas pastas raiz de cada uma das
@@ -102,6 +101,58 @@ pastas raiz de cada projeto (backend e frontend):
 ```bash
   docker-compose up --build
 ```
+
+## Deploys
+
+Para realizar o deploy das aplicações foi necessário separar os projetos backend e frontend. O backend foi implantado no render.com e o frontend no Firebase Hosting.
+
+Inicialmente comecei pelo backend subindo uma infraestrutura no Render.com. Comecei criando o banco de dados (PostgreSQL), e por fim subindo a aplicação isolada do frontend.
+Eu tenho um post no MEDIUM explicando o processo de deploy de aplicações Django/DjangoRest nesta plataforma: 
+
+[https://medium.com/@caiomarinho8/how-to-deploy-django-applications-with-postgresql-on-render-com-c26601889dea](https://medium.com/@caiomarinho8/how-to-deploy-django-applications-with-postgresql-on-render-com-c26601889dea)
+
+### Dados do backend na plataforma Render.com
+
+#### Banco de dados
+
+```sh
+Hostname: dpg-ce10kgun6mpu84v4to9g-a
+
+Port: 5432
+
+Database: beetellercotacoes
+
+Username: beetellercotacoes_user
+
+Password: Iym1B0KSjdcwkhv99Y1WAmCZr46Obq4Q
+
+External Database URL: postgres://beetellercotacoes_user:Iym1B0KSjdcwkhv99Y1WAmCZr46Obq4Q@dpg-ce10kgun6mpu84v4to9g-a.oregon-postgres.render.com/beetellercotacoes
+```
+
+#### App Backend
+
+URL:[https://backendcotacoes.onrender.com](https://backendcotacoes.onrender.com)
+
+Admin User
+
+username: admin
+password: Admin123!
+
+
+#### App Frontend
+Deploy no Firebase Hosting:
+[https://frontend-beeteller-cotacoes.web.app/](https://frontend-beeteller-cotacoes.web.app/)
+
+Deploy no Netlify:
+[https://jolly-tarsier-4e4b89.netlify.app/](https://jolly-tarsier-4e4b89.netlify.app/)
+
+
+Você pode logar com o admin previamente dito, ou registrar um novo usuário.
+
+
+#### Repositório
+https://github.com/caiomarinhodev/selecao-full-stack
+
 
 ## 📝 Licença
 
