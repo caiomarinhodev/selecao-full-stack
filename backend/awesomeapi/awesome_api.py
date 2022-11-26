@@ -7,8 +7,6 @@ AWESOME_API_JSON = 'json'
 AWWSOME_API_XML = 'xml'
 
 
-# TODO: Tests DRF testing
-# TODO: Docker
 def get_ticker(ticker):
     """
     Get ticker information
