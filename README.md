@@ -138,6 +138,7 @@ Admin User
 username: admin
 password: Admin123!
 
+OBS: O Backend está em servidor gratuito, então pode demorar um pouco para carregar a primeira vez (média de 30s). 
 
 #### App Frontend
 Deploy no Firebase Hosting:
@@ -146,8 +147,9 @@ Deploy no Firebase Hosting:
 Deploy no Netlify:
 [https://jolly-tarsier-4e4b89.netlify.app/](https://jolly-tarsier-4e4b89.netlify.app/)
 
-
 Você pode logar com o admin previamente dito, ou registrar um novo usuário.
+
+OBS: O Backend está em servidor gratuito, então pode demorar um pouco para carregar a primeira vez (média de 30s). 
 
 
 #### Repositório
