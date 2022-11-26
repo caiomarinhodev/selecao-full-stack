@@ -58,6 +58,7 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
         this.navigate(['/login']);
       },
       err => {
+        this.loading = false;
         if (err.status === 400) {
           this.notification.error(this.translate.instant('ERROR_USER_ALREADY_EXISTS'));
         } else {

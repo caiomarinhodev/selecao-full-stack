@@ -64,6 +64,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.navigate(['/']);
       },
       err => {
+        this.loading = false;
         this.notification.error('Usuário ou senha inválida!');
       }
     );

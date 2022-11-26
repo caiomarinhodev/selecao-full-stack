@@ -115,6 +115,7 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
       for (let i = 0; i < keys.length; i++) {
         this.available_tickers.push({ 'key': keys[i], 'value': values[i] });
       }
+      this.available_tickers = this.available_tickers.sort((a, b) => a.value.localeCompare(b.value));
       if (this.available_tickers.length > 0) {
         this.selectedTicker = this.available_tickers[5].key;
         this.getHistoryByTicker(this.selectedTicker);
