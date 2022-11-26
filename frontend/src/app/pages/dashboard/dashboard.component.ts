@@ -115,8 +115,10 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
       for (let i = 0; i < keys.length; i++) {
         this.available_tickers.push({ 'key': keys[i], 'value': values[i] });
       }
-      this.selectedTicker = this.available_tickers[0]['key'];
-      this.getHistoryByTicker(this.selectedTicker);
+      if (this.available_tickers.length > 0) {
+        this.selectedTicker = this.available_tickers[5].key;
+        this.getHistoryByTicker(this.selectedTicker);
+      }
       this.loading = false;
     },
       error => {

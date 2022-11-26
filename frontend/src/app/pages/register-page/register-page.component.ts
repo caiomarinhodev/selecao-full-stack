@@ -16,6 +16,8 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
 
   registerForm: FormGroup;
 
+  loading = false;
+
   constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute,
     vcr: ViewContainerRef,
     private translate: TranslateService) {
@@ -48,8 +50,10 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
   }
 
   register(username, email, password): void {
+    this.loading = true;
     this.userService.register(username, email, password).subscribe(
       result => {
+        this.loading = false;
         this.notification.successText(this.translate.instant('USER_REGISTERED'));
         this.navigate(['/login']);
       },

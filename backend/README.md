@@ -20,11 +20,12 @@ Hub que permitirá listar cotações em tempo real de algumas moedas utilizando 
 
 ## 📝 Descrição
 
-Este projeto foi desenvolvido com Django Framework, Django Rest Framework, Django Knox e PostgreSQL.
+Este projeto foi desenvolvido em Python 3.8, com Django Framework, Django Rest Framework, Django Knox e PostgreSQL.
 
 ## Instalação
 
 Para rodar a aplicação você deverá seguir os passos abaixo.
+OBS: É necessário ter o Python 3.8 instalado.
 
 1 - Instale as dependencias
 
