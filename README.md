@@ -42,6 +42,8 @@ Por isso, optei por utilizar o framework Angular Material, que é um framework d
 Material Design e Bootstrap), ferramentas estas que possuo um pouco de domínio e que me auxiliaram na construção das
 páginas e componentes, a fim de cumprir com as funcionalidades necessárias para a execução do projeto.
 
+Como todo bom projeto, foi desenvolvido uma boa documentação nos README's de cada aplicação, assim como o código está documentado. Está descrito em ambos um guia de instalação. Foi implementado testes para ambas aplicações e também foi utilizado o Docker para facilitar a instalação e execução do projeto. Foi rodado linters e analisadores de código para garantir a qualidade do código, através de relatórios de violações de padrões de código e de segurança, tudo isto para agregar valor e garantir uma boa continuidade no desenvolvimento do projeto.
+
 ## 📝 Descrição do projeto
 
 Como dito anteriormente, o projeto consistem duas grandes aplicações: Frontend e Backend. Ambas aplicações funcionam
