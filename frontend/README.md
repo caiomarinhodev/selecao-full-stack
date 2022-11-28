@@ -176,9 +176,11 @@ A aplicação já estará rodando em http://localhost:4200
 O problema consiste em criar um frontend para um sistema de cotações de moedas. O sistema deve ser capaz de listar as
 cotações de algumas moedas, utilizando algumas APIs.
 
-Como um dos requisitos era a responsividade, foi utilizado o framework Angular, que possui uma estrutura de componentes
-que facilita a criação de interfaces responsivas. Como o tempo era curto, decidi em algumas partes fazer uso do
-Bootstrap, que é uma biblioteca de componentes responsivos, para agilizar o desenvolvimento.
+Como um dos requisitos era a responsividade, foi utilizado o framework Angular, que possui uma estrutura de componentes que facilita a criação de interfaces responsivas. Como o tempo era curto, decidi em algumas partes fazer uso do Bootstrap, que é uma biblioteca de componentes responsivos, para agilizar o desenvolvimento.
+
+Pode-se perceber que o sistema possui uma estrutura de componentes bem definida, que facilita a manutenção e a criação de novas funcionalidades. Então, Ficou para ser implementado posteriormente a listagem de tickers de acordo com o design proposto no figma. A idealização do design implementado foi feita com base no protótipo do figma, porém utilizando o Material Design em sua maior característica. Acredito que não ficou a desejar pois a funcionalidade corresponde com a mesma função proposta no protótipo. 
+
+Como estamos trabalhando em um MVP, temos então uma aplicação que atende os requisitos propostos, e que pode ser melhorada e evoluída posteriormente, seguindo uma filosofia Ágil de desenvolvimento, com um desenvolvimento iterativo e incremental, entregando funcionalidades mesmo que com Design ainda primário.Assim, proponho para uma nova versão a continuidade do desenvolvimento implementando esta listagem de acordo com o Design proposto no figma, além de novas funcionalidades mais avançadas, como por exemplo, a criação de alertas de cotações, e a criação de carteiras de investimentos, e adição de novos Cards.
 
 ## 📝 Licença
 

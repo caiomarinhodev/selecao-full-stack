@@ -120,7 +120,6 @@ export class DashboardPageComponent extends BaseModelComponent implements OnInit
         this.selectedTicker = this.available_tickers[5].key;
         this.getHistoryByTicker(this.selectedTicker);
       }
-      this.loading = false;
     },
       error => {
         this.loading = false;

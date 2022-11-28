@@ -8,6 +8,8 @@ import { UserService } from 'src/app/service/user/user.service';
 })
 export class ToolbarComponent implements OnInit {
 
+  loading = false;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -18,7 +20,16 @@ export class ToolbarComponent implements OnInit {
   }
 
   logout() {
-    this.userService.logout();
+    this.loading = true;
+    this.userService.logoutUser().subscribe(() => {
+      localStorage.removeItem('user');
+      this.loading = false;
+      window.location.replace('/');
+    }, err => {
+      localStorage.removeItem('user');
+      this.loading = false;
+      window.location.replace('/login');
+    });
   }
 
 }

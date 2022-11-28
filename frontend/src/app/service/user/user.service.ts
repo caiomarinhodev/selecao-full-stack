@@ -55,14 +55,18 @@ export class UserService extends BaseService {
   /**
    * Logout the user.
    */
-  logout(): void {
-    this.post(AuthURL.LOGOUT, {}).subscribe(() => {
+  logout() {
+    return this.post(AuthURL.LOGOUT, {}).subscribe(() => {
       localStorage.removeItem(STORAGE_KEY);
       window.location.replace('/');
     }, err => {
       localStorage.removeItem(STORAGE_KEY);
       window.location.replace('/login');
     });
+  }
+
+  logoutUser() {
+    return this.post(AuthURL.LOGOUT, {});
   }
 }
 
