@@ -41,7 +41,7 @@ describe('Beeteller App DashboardPage', () => {
     cy.get('.reload-icon').should('be.visible');
     cy.get('.mat-card').should('be.visible');
     cy.get('.select-ticker').should('be.visible');
-    cy.get('.select-ticker').should('have.value', 'AED');
+    cy.get('.select-ticker').should('have.value', 'BTC');
     cy.get('.mat-table').should('be.visible');
   })
 
