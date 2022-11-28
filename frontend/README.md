@@ -1,5 +1,7 @@
 # Frontend para Beeteller - Cotacoes
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db52211b-33d7-4097-bd53-5e4219258cb2/deploy-status)](https://app.netlify.com/sites/jolly-tarsier-4e4b89/deploys)
+
 Hub que permitirá listar cotações em tempo real de algumas moedas utilizando algumas APIs.
 
 ## **Tabela de Conteúdos**
