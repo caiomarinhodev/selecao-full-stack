@@ -11,6 +11,7 @@ export const API_VERSION = 'v1';
  */
 export const SERVER_URL = 'http://localhost:8000/api/';
 // export const SERVER_URL = 'https://backendcotacoes.onrender.com/api/';
+// export const SERVER_URL = 'https://backend-cotacoes.ml/api/';
 
 /**
  * URLs for Login.

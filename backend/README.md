@@ -11,6 +11,7 @@ Hub que permitirá listar cotações em tempo real de algumas moedas utilizando 
 
 - [📝 Descrição](#descrição)
 - [🚀 Instalação](#instalação)
+- [Swagger](#swagger)
 - [Testes](#testes)
 - [Qualidade de código](#qualidade-de-código)
 - [Endpoints](#endpoints)
@@ -51,6 +52,21 @@ OBS: É necessário ter o Python 3.8 instalado.
 ```bash
   python manage.py runserver
 ```
+
+## Swagger
+
+![Swagger](https://i.imgur.com/oFijKpZ.png)
+
+Tomei a liberdade de incrementar ainda mais a qualidade de projeto backend adicionando mais uma camada para futuros desenvolvedores terem acesso a documentação da API, o Swagger.
+
+A idéia é simplificar o desenvolvimento desta API pois esta ferramenta pode nos ajudar a projetar e documentar as APIs em escala.
+
+Para acessar a documentação da API, acesse o link abaixo:
+
+```bash
+  http://localhost:8000/swagger/
+```
+
 
 ## Testes
 
